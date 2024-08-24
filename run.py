@@ -10,6 +10,13 @@ class Account:
         print(f"Account ID: {self.account_id}")
         print(f"Balance for {self.name}: ${self.balance}")
 
+    def deposit(self, amount):
+        if amount > 0:
+            self.balance += amount
+            print(f"Deposited ${amount:.f}. New balance: ${self.balance:2f}")
+        else:
+            print("Deposit amount must be positive.")
+
 
 user_name = input("Enter your username to create an account: ")
 account = Account(user_name)
@@ -18,7 +25,10 @@ print("\nAccount successfully created!")
 print(f"Username: {account.name}")
 print(f"Account ID: {account.account_id}\n")
 
-
+def deposit():
+    try:
+        amount = float(input("Enter amount to deposit: "))
+        account.deposit(amount)
 
 while True:
     print("Banking App Live")
