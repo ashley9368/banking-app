@@ -15,13 +15,12 @@ user_name = input("Enter your username to create an account: ")
 account = Account(user_name)
 
 print("\nAccount successfully created!")
-print(f"Username: {accout.name}")
+print(f"Username: {account.name}")
 print(f"Account ID: {account.account_id}\n")
 
 
-is_running = True
 
-while is_running:
+while True:
     print("Banking App Live")
     print("1. Check Balance")
     print("2. Deposit Funds")
@@ -37,8 +36,7 @@ while is_running:
     elif choice == '3':
         withdraw()
     elif choice == '4':
-        is_running = False
-    else: 
+        print("Thank you for using our banking app, Have a nice day!")
+        break
+    else:
         print("Please select a valid choice")
-
-print("Thank you for using our banking app, Have a nice day!")
