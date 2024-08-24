@@ -29,6 +29,8 @@ def deposit():
     try:
         amount = float(input("Enter amount to deposit: "))
         account.deposit(amount)
+    except ValueError:
+        print("Invalid input. Please enter a numerical value. ")
 
 while True:
     print("Banking App Live")
