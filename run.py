@@ -1,11 +1,22 @@
-# Your code goes here.
-# You can delete these comments, but do not change the name of this file
-# Write your code to expect a terminal of 80 characters wide and 24 rows high
+import uuid
 
 class Account:
-    def __init(self, name, balance=0):
+    def __init__(self, name, balance=0):
         self.name = name
         self.balance = balance
+        self.account_id = str(uuid.uuid4())
+
+    def show_balance(self):
+        print(f"Account ID: {self.account_id}")
+        print(f"Balance for {self.name}: ${self.balance}")
+
+
+user_name = input("Enter your username to create an account: ")
+account = Account(user_name)
+
+print("\nAccount successfully created!")
+print(f"Username: {accout.name}")
+print(f"Account ID: {account.account_id}\n")
 
 
 is_running = True
@@ -20,7 +31,7 @@ while is_running:
     choice = input("Select what you would like to do today (1-4): ")
 
     if choice == '1':
-        show_balance()
+        account.show_balance()
     elif choice == '2':
         deposit()
     elif choice == '3':
@@ -29,3 +40,5 @@ while is_running:
         is_running = False
     else: 
         print("Please select a valid choice")
+
+print("Thank you for using our banking app, Have a nice day!")
