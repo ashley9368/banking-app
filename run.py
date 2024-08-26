@@ -33,11 +33,41 @@ class Account:
         if amount > 0:
             if amount <= self.balance:
                 self.balance -= amount
-                print(f"Withdrew ${amount:.2f} New balance: ${self.balance:.2f}")
+                print(f"Withdrew ${amount:.2f}. New balance: ${self.balance:.2f}")
             else:
                 print("Insufficient funds for this withdrawal.")
         else:
             print("Withdrawal amount must be positive.")
+def save_account(account, pin):
+    """
+    Saves the account details to a JSON file. 
+    """
+    data = {
+        "name": account.name,
+        "balance": account.balance,
+        "account_id": account.account_id,
+        "pin": pin
+    }
+    with open(f"{account.name}.json", "w") as file:
+        json.dump(data, file)
+    print("Account data saved successfully!")
+
+
+def load_account(username, input_pin):
+    """
+    Loads account details from a JSON file if it exists and PIN matches.
+    """
+    filename = f"{username}.json"
+    if os.path.exists(filename):
+        with open(filename, "r") as file:
+            data = json.load(file)
+            if input_pin == data["pin"]:
+                return Account(name=data["name"], balance=data["balance"], account_id=data["account_id"])
+            else: 
+                print("Incorrect PIN.")
+    else: 
+        print("No account found for that username.")
+    return None
 
 
 def create_new_account():
@@ -63,10 +93,11 @@ def banking_app():
     if account is None:
         print("Creating a new account...")
         account = create_new_account()
-    else: print(f"Welcome back, {account.name}!")
+    else: 
+        print(f"Welcome back, {account.name}!")
 
     while True:
-        print("\nBanking App Live")
+        print("\nBanking App Options")
         print("1. Check Balance")
         print("2. Deposit Funds")
         print("3. Withdraw Funds")
