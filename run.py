@@ -45,10 +45,24 @@ class Account:
         else:
             print("Withdrawal amount must be positive.")
 
+def banking_app():
+    """ 
+    Main function to run the banking app
+    """
+    print("Welcome to the Banking App!")
+
+    username= input("Enter your username: ")
+    pin = input("Enter your PIN: ")
+
+    account = load_account(username, pin)
+    if account is None:
+        print("Creating a new account...")
+        account = create_new_account()
+
 
 def create_new_account():
     """
-    Creates a new account with a pin. 
+    Creates a new account with a PIN. 
     """
     user_name = input("Enter your username to create an account: ")
     pin = input("set a PIN (minimum 4 digits): ")
@@ -56,11 +70,6 @@ def create_new_account():
     save_account(account, pin)
     return account
 
-def save_account(account, pin):
-
-def load_account(username, input_pin):
-
-def banking_app():
 
 while True:
     print("Banking App Live")
