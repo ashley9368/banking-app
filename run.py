@@ -1,4 +1,6 @@
 import uuid
+import json
+import os
 
 class Account:
     """ 
@@ -10,7 +12,7 @@ class Account:
         """
         self.name = name
         self.balance = balance
-        self.account_id = str(uuid.uuid4())
+        self.account_id = account_id or str(uuid.uuid4())
 
     def show_balance(self):
         """
@@ -44,34 +46,21 @@ class Account:
             print("Withdrawal amount must be positive.")
 
 
-user_name = input("Enter your username to create an account: ")
-account = Account(user_name)
+def create_new_account():
+    """
+    Creates a new account with a pin. 
+    """
+    user_name = input("Enter your username to create an account: ")
+    pin = input("set a PIN (minimum 4 digits): ")
+    account = Account(user_name)
+    save_account(account, pin)
+    return account
 
-print("\nAccount successfully created!")
-print(f"Username: {account.name}")
-print(f"Account ID: {account.account_id}\n")
+def save_account(account, pin):
 
-def deposit():
-    """
-    Prompts the user to enter an amount to deposit into their account.
-    Handles potential ValueError exceptions if the input is not numeric.
-    """
-    try:
-        amount = float(input("Enter amount to deposit: "))
-        account.deposit(amount)
-    except ValueError:
-        print("Invalid input. Please enter a numerical value. ")
+def load_account(username, input_pin):
 
-def withdraw():
-    """
-    Prompts the user to enter an amount to withdraw from their account
-    Handles potential ValueError exceptions if the input is not numeric.
-    """
-    try:
-        amount = float(input("Enter amount to withdraw: "))
-        account.withdraw(amount)
-    except ValueError:
-        print("Invalid input. Please enter a numerical value.") 
+def banking_app():
 
 while True:
     print("Banking App Live")
