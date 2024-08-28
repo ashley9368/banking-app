@@ -108,7 +108,11 @@ def banking_app():
         if choice == '1':
             account.show_balance()
         elif choice == '2':
-            deposit()
+            try:
+                amount = float(input("Enter amount to deposit: "))
+                account.deposit(amount)
+            except ValueError:
+                print("Invalid input. Pleae enter a numerical value. ")
         elif choice == '3':
             withdraw()
         elif choice == '4':
