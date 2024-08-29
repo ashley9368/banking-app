@@ -74,9 +74,25 @@ def create_new_account():
     """
     Creates a new account with a PIN. 
     """
-    user_name = input("Enter your username to create an account: ")
-    pin = input("Set a PIN (minimum 4 digits): ")
-    account = Account(user_name)
+
+    while True:
+        username = input("Enter your username to create an account (No numbers, Max 8 characters): ")
+        if not username.isalpha():
+            print("Username must not contain numbers. Please try again.")
+            continue
+        if len(username) > 8:
+            print("Username must not be more than 8 characters. Please try again.")
+            continue
+        break
+
+    while True: 
+        pin = input("Set a PIN (minimum 4 digits): ")
+        if len(pin) != 4 or not pin.isdigit():
+            print("PIN must be 4 digits long and contain only numbers. Please try again.")
+            continue
+        break
+
+    account = Account(username)
     save_account(account, pin)
     return account
 
