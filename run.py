@@ -62,12 +62,12 @@ def load_account(username, input_pin):
         with open(filename, "r") as file:
             data = json.load(file)
             if input_pin == data["pin"]:
-                return Account(name=data["name"], balance=data["balance"], account_id=data["account_id"])
+                return Account(name=data["name"], balance=data["balance"], account_id=data["account_id"]), data["pin"]
             else: 
                 print("Incorrect PIN.")
     else: 
         print("No account found for that username.")
-    return None
+    return None, None
 
 
 def create_new_account():
@@ -94,7 +94,7 @@ def create_new_account():
 
     account = Account(username)
     save_account(account, pin)
-    return account
+    return account, pin
 
 def banking_app():
     """ 
@@ -107,15 +107,22 @@ def banking_app():
         print("1. Login with an existing account")
         print("2. Create a new account")
         choice = input("Select 1 or 2: ")
+        
+        if choice == '1':
+            username = input("Enter your username: ")
+            pin = input("Enter your PIN: ")
+            account, pin = load_account(username, pin)
+            if account:
+                break
+            else: 
+                print("Login failed. Please try again.")
+        elif choice == '2':
+            print("Create a new account...")
+            account, pin = create_new_account()
+            break
+        else: 
+            print("Invalid choice. Please select 1 or 2.")
 
-    username = input("Enter your username: ")
-    pin = input("Enter your PIN: ")
-
-    account = load_account(username, pin)
-    if account is None:
-        print("Creating a new account...")
-        account = create_new_account()
-    else: 
         print(f"Welcome back, {account.name}!")
 
     while True:
@@ -134,13 +141,13 @@ def banking_app():
                 amount = float(input("Enter amount to deposit: "))
                 account.deposit(amount)
             except ValueError:
-                print("Invalid input. Pleae enter a numerical value. ")
+                print("Invalid input. Please enter a numerical value.")
         elif choice == '3':
             try: 
-                amount = float(input("Enter amount to withdraw "))
+                amount = float(input("Enter amount to withdraw: "))
                 account.withdraw(amount)
             except ValueError:
-                print("Invalid input. Please enter a numerical value. ")
+                print("Invalid input. Please enter a numerical value.")
         elif choice == '4':
             print("Saving your account data...")
             save_account(account, pin)
