@@ -114,9 +114,15 @@ def banking_app():
             except ValueError:
                 print("Invalid input. Pleae enter a numerical value. ")
         elif choice == '3':
-            withdraw()
+            try: 
+                amount = float(input("Enter amount to withdraw "))
+                account.withdraw(amount)
+            except ValueError:
+                print("Invalid input. Please enter a numerical value. ")
         elif choice == '4':
-            print("Thank you for using our banking app, Have a nice day!")
+            print("Saving your account data...")
+            save_account(account, pin)
+            print("Thank you for using our banking app. Have a nice day!")
             break
         else:
             print("Please select a valid choice")
