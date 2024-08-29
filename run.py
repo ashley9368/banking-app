@@ -4,21 +4,26 @@ import os
 
 class Account:
     """ 
+    Represents a users bank account.
     """
     def __init__(self, name, balance=0, account_id=None):
+        """
+        Creates a new account with a username, starting balance, and a unique ID.
+        """
         self.name = name
         self.balance = balance
         self.account_id = account_id or str(uuid.uuid4())
 
     def show_balance(self):
         """
-        Displays the account ID and the current balance for the account.
+        Prints out account ID and the current balance.
         """
         print(f"Account ID: {self.account_id}")
         print(f"Balance for {self.name}: ${self.balance:.2f}")
 
     def deposit(self, amount):
         """
+        Adds money to the account.
         """
         if amount > 0:
             self.balance += amount
@@ -28,7 +33,7 @@ class Account:
 
     def withdraw(self, amount):
         """
-        Withdraws a specified amount from the account if the amount is positive and does not exceed the available balance. Updates the balance accordingly.
+        Takes money out the account if there is enough balance.
         """
         if amount > 0:
             if amount <= self.balance:
@@ -40,7 +45,7 @@ class Account:
             print("Withdrawal amount must be positive.")
 def save_account(account, pin):
     """
-    Saves the account details to a JSON file. 
+    Saves the account details to a JSON file so they can be loaded later. 
     """
     data = {
         "name": account.name,
@@ -72,7 +77,7 @@ def load_account(username, input_pin):
 
 def create_new_account():
     """
-    Creates a new account with a PIN. 
+    Creates a new account by asking for a username and PIN from the user.
     """
 
     while True:
@@ -98,7 +103,9 @@ def create_new_account():
 
 def banking_app():
     """ 
-    Main function to run the banking app
+    Main function to run the banking app.
+
+    Lets users log in or create a new account, then provides options to check balance, deposit, withdraw, or exit.
     """
     print("Welcome to the Banking App!")
 
