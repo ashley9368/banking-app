@@ -86,7 +86,7 @@ def create_new_account():
         break
 
     while True: 
-        pin = input("Set a PIN (minimum 4 digits): ")
+        pin = input("Set a PIN (Exactly 4 digits): ")
         if len(pin) != 4 or not pin.isdigit():
             print("PIN must be 4 digits long and contain only numbers. Please try again.")
             continue
@@ -101,6 +101,12 @@ def banking_app():
     Main function to run the banking app
     """
     print("Welcome to the Banking App!")
+
+    while True:
+        print("\nChoose what you would like to do today:")
+        print("1. Login with an existing account")
+        print("2. Create a new account")
+        choice = input("Select 1 or 2: ")
 
     username = input("Enter your username: ")
     pin = input("Enter your PIN: ")
