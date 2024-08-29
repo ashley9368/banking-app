@@ -23,13 +23,16 @@ class Account:
 
     def deposit(self, amount):
         """
-        Adds money to the account.
+        Adds money to the account, with a maxium deposit limit of $500.
         """
         if amount > 0:
-            self.balance += amount
-            print(f"Deposited ${amount:.2f}. New balance: ${self.balance:.2f}")
+            if amount > 500:
+                print("Deposit amount exceeds the $500 limit. Please enter a smaller amount.")
+            else:
+                self.balance += amount
+                print(f"Deposited ${amount:.2f}. New balance: ${self.balance:.2f}")
         else:
-            print("Deposit amount must be positive.")
+            print("Deposit amount must be positive")
 
     def withdraw(self, amount):
         """
@@ -43,6 +46,8 @@ class Account:
                 print("Insufficient funds for this withdrawal.")
         else:
             print("Withdrawal amount must be positive.")
+
+
 def save_account(account, pin):
     """
     Saves the account details to a JSON file so they can be loaded later. 
