@@ -32,14 +32,16 @@ class Account:
                 self.balance += amount
                 print(f"Deposited ${amount:.2f}. New balance: ${self.balance:.2f}")
         else:
-            print("Deposit amount must be positive")
+            print("Deposit amount must be positive.")
 
     def withdraw(self, amount):
         """
         Takes money out the account if there is enough balance.
         """
         if amount > 0:
-            if amount <= self.balance:
+            if amount > 500:
+                print("Withdrawal amount exceeds the $500 limit. Please enter a smaller amount.")
+            elif amount <= self.balance:
                 self.balance -= amount
                 print(f"Withdrew ${amount:.2f}. New balance: ${self.balance:.2f}")
             else:
