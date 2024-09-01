@@ -16,13 +16,11 @@ The deployed project live link is [HERE](https://banking-app-python-d549d2afb12c
 - [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Resources](#resources)
-  - [Libraries](#libraries)
 - [Testing](#testing)
 - [Future Updates](#future-updates)  
 - [Validation](#validation)
 - [Deployment](#deployment)
   - [Heroku](#heroku)
-  - [Branching the GitHub Repository using GitHub Desktop and Visual Studio Code](#branching-the-github-repository-using-github-desktop-and-visual-studio-code)
 - [Bugs](#bugs)
 - [Credits](#credits)
 - [Acknowledgements](#acknowledgements)
@@ -138,7 +136,7 @@ I would like to add different account types, like savings accounts, or business 
 
 PEP8 - I added an extension called flake 8 to validate my code - https://flake8.pycqa.org/en/latest/
 
-All code has been reviewed, and lines longer than the recommended length have been adjusted where possible.
+All code has been reviewed, and lines longer than the recommended length have been adjusted where needed.
 
 ## Deployment
 
@@ -160,11 +158,11 @@ The app only checks if the username is made of letters and not too long. It does
 
 ## Credits
 
-![This video served as a helpful resource during my project](https://www.youtube.com/watch?v=8aW3tkIul-8)
+- [This video served as a helpful resource during my project](https://www.youtube.com/watch?v=8aW3tkIul-8)
 
-![This cheat sheet was a handy reference during my project](https://images.datacamp.com/image/upload/v1694526244/Marketing/Blog/Python_Basics_Cheat_Sheet-updated.pdf)
+- [This cheat sheet was a handy reference during my project](https://images.datacamp.com/image/upload/v1694526244/Marketing/Blog/Python_Basics_Cheat_Sheet-updated.pdf)
 
-![understanding json a little more](https://codeinstitute.net/blog/working-with-json-in-python/)
+- [understanding json a little more](https://codeinstitute.net/blog/working-with-json-in-python/)
 
 ## Acknowledgements
 
