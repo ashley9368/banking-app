@@ -121,7 +121,7 @@ The only technology i used to create this program is Python
 
 ## Testing
 
-The banking app has been tested and the results can be viewed [here - TESTING](https://github.com/ashley9368/banking-app) (COME BACK TO THIS)
+The banking app has been tested and the results can be viewed [here - TESTING](https://github.com/ashley9368/banking-app/blob/main/TESTING.md)
 
 ## Future Updates
 
@@ -160,7 +160,12 @@ The app only checks if the username is made of letters and not too long. It does
 
 ## Credits
 
+![This video served as a helpful resource during my project](https://www.youtube.com/watch?v=8aW3tkIul-8)
+
+![This cheat sheet was a handy reference during my project](https://images.datacamp.com/image/upload/v1694526244/Marketing/Blog/Python_Basics_Cheat_Sheet-updated.pdf)
+
+![understanding json a little more](https://codeinstitute.net/blog/working-with-json-in-python/)
 
 ## Acknowledgements
 
-My mentor
+I want to thank my mentor, Jubril Akolade, for his support and guidance throughout this project. His help was key for me to know which direction to go in.
