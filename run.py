@@ -157,6 +157,7 @@ def banking_app():
             pin = input("Enter your PIN: ")
             account, pin = load_account(username, pin)
             if account:
+                print(f"Welcome back, {account.name}!")
                 break
             else:
                 print("Login failed. Please try again.")
@@ -166,8 +167,6 @@ def banking_app():
             break
         else:
             print("Invalid choice. Please select 1 or 2.")
-
-        print(f"Welcome back, {account.name}!")
 
     while True:
         print("\nBanking App Options")
